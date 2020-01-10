@@ -1,4 +1,4 @@
-package com.raziv.foodmandu.Server_response;
+package com.raziv.foodmandu.serverresponse;
 
 public class ImageResponse {
     private String filename;

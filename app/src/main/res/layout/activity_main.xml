@@ -1,18 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#020920"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/SideImage"
+        android:layout_width="118dp"
+        android:layout_height="800dp"
+        android:src="@drawable/side"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="49dp" />
+
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginLeft="135dp"
+        android:layout_marginTop="120dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Login to Foodmandu"
+        android:textColor="#FFFFFF"
+        android:textSize="30dp"
+        android:textStyle="bold" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="109dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_marginLeft="135dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Email"
+        android:textColor="#FFFFFF"
+        android:textSize="15dp" />
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="205dp"
+        android:layout_height="53dp"
+        android:layout_below="@+id/textView2"
+        android:layout_marginLeft="135dp"
+        android:hint="Enter Email...."
+        android:textColor="#FFFFFF"
+        android:textColorHint="@color/colorAccent"/>
+
+    <TextView
+        android:id="@+id/vtPassword"
+        android:layout_width="109dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etEmail"
+        android:layout_marginLeft="135dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Password"
+        android:textColor="#FFFFFF"
+        android:textSize="15dp" />
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="205dp"
+        android:layout_height="53dp"
+        android:layout_below="@+id/vtPassword"
+        android:layout_marginLeft="135dp"
+        android:hint="Enter Password...."
+        android:textColor="#FFFFFF"
+        android:textColorHint="@color/colorAccent"/>
+
+    <Button
+        android:layout_width="205dp"
+        android:layout_height="53dp"
+        android:layout_alignEnd="@+id/textView2"
+        android:layout_marginLeft="135dp"
+        android:id="@+id/btnLogin"
+        android:layout_below="@id/etPassword"
+        android:text="Login"
+        android:textColor="@color/colorAccent"
+        />
+
+    <TextView
+        android:id="@+id/vtNotAccount"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnLogin"
+        android:layout_marginLeft="135dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Don't have an account ?"
+        android:textColor="#FFFFFF"
+        android:textSize="15dp" />
+
+    <Button
+        android:id="@+id/click"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="135dp"
+        android:text="Click Here"
+        android:textSize="15sp"
+        android:textColor="#FFFFFF"
+        android:layout_below="@+id/vtNotAccount" />
+
+
+
+</RelativeLayout>

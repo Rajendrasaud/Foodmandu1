@@ -1,162 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="#020920"
-    android:orientation="vertical"
-    tools:context=".SignupActivity">
+    android:background="#D0F52F"
+    >
 
-    <ImageView
-        android:id="@+id/SideImage"
-        android:layout_width="118dp"
-        android:layout_height="800dp"
-        android:src="@drawable/side"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="49dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:context=".SignupActivity">
 
 
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-black"
-        android:text="SignUp Here!"
-        android:layout_marginLeft="120dp"
-        android:layout_marginTop="90dp"
-        android:textColor="#FFFFFF"
-        android:textSize="30dp"
-        android:textStyle="bold" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="135dp"
-        android:layout_marginTop="120dp"
+        msung<de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/ProfileImg"
-        android:src="@drawable/ic_launcher_foreground"
-        />
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/human" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="109dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/ProfileImg"
-        android:layout_marginLeft="135dp"
-        android:fontFamily="sans-serif-black"
-        android:text="First Name"
-        android:textColor="#FFFFFF"
-        android:textSize="15dp" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/etFirstname"
-        android:layout_width="205dp"
-        android:layout_height="53dp"
-        android:layout_below="@+id/textView2"
-        android:layout_marginLeft="135dp"
-        android:hint="Enter First Name...."
-        android:textColor="#FFFFFF"
-        android:textColorHint="@color/colorAccent"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etFirstname"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:hint="First Name"
+                android:textColor="#000000"
+                android:background="#FFFFFF"
+                android:singleLine="true"
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/vtPassword"
-        android:layout_width="109dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/etFirstname"
-        android:layout_marginLeft="135dp"
-        android:fontFamily="sans-serif-black"
-        android:text="Last Name"
-        android:textColor="#FFFFFF"
-        android:textSize="15dp" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/etLastname"
-        android:layout_width="205dp"
-        android:layout_height="53dp"
-        android:layout_below="@+id/vtPassword"
-        android:layout_marginLeft="135dp"
-        android:hint="Enter Lastname...."
-        android:textColor="#FFFFFF"
-        android:textColorHint="@color/colorAccent"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etLastname"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:hint="LastName"
+                android:textColor="#000000"
+                android:background="#FFFFFF"
+                android:singleLine="true"
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/vtUsername"
-        android:layout_width="109dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/etLastname"
-        android:layout_marginLeft="135dp"
-        android:fontFamily="sans-serif-black"
-        android:text="Email"
-        android:textColor="#FFFFFF"
-        android:textSize="15dp" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/etEmails"
-        android:layout_width="205dp"
-        android:layout_height="53dp"
-        android:layout_below="@+id/vtUsername"
-        android:layout_marginLeft="135dp"
-        android:hint="Enter Username...."
-        android:textColor="#FFFFFF"
-        android:textColorHint="@color/colorAccent"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etEmails"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:hint="Username"
+                android:singleLine="true"
+                android:textColor="#000000"
+                android:background="#FFFFFF"
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/vtPasswords"
-        android:layout_width="109dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/etEmails"
-        android:layout_marginLeft="135dp"
-        android:fontFamily="sans-serif-black"
-        android:text="Password"
-        android:textColor="#FFFFFF"
-        android:textSize="15dp" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/etPasswords"
-        android:layout_width="205dp"
-        android:layout_height="53dp"
-        android:layout_below="@+id/vtPasswords"
-        android:layout_marginLeft="135dp"
-        android:hint="Enter Password...."
-        android:textColor="#FFFFFF"
-        android:textColorHint="@color/colorAccent"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPasswords"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:hint="Password"
+                android:textColor="#000000"
+                android:background="#FFFFFF"
+                android:inputType="textPassword"
+                android:singleLine="true"
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/vtconPasswords"
-        android:layout_width="109dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/etPasswords"
-        android:layout_marginLeft="135dp"
-        android:fontFamily="sans-serif-black"
-        android:text="Confirm Password"
-        android:textColor="#FFFFFF"
-        android:textSize="15dp" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etConPasswords"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:hint="Confirm Password"
+                android:inputType="textPassword"
+                android:singleLine="true"
+                android:textColor="#000000"
+                android:background="#FFFFFF"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/etConPasswords"
-        android:layout_width="205dp"
-        android:layout_height="53dp"
-        android:layout_below="@+id/vtconPasswords"
-        android:layout_marginLeft="135dp"
-        android:hint="Confirm Password...."
-        android:textColor="#FFFFFF"
-        android:textColorHint="@color/colorAccent"/>
-
-
-    <Button
-        android:layout_width="205dp"
-        android:layout_height="53dp"
-        android:layout_alignEnd="@+id/textView2"
-        android:layout_marginLeft="135dp"
-        android:id="@+id/btnRegister"
-        android:layout_below="@id/etConPasswords"
-        android:text="Register"
-        android:textColor="@color/colorAccent"
-        android:layout_alignRight="@+id/textView2" />
-
-</RelativeLayout>
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:background="#FFFFFF"
+            android:text="sign up"
+            />
+    </LinearLayout>
+</ScrollView>
