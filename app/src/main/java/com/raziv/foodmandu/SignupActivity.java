@@ -1,6 +1,8 @@
 package com.raziv.foodmandu;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,12 +13,16 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.loader.content.CursorLoader;
 
 import com.raziv.foodmandu.api.UsersAPI;
 import com.raziv.foodmandu.model.User;
+import com.raziv.foodmandu.permission.LinkPermisson;
 import com.raziv.foodmandu.serverresponse.ImageResponse;
 import com.raziv.foodmandu.serverresponse.SignupResponse;
 import com.raziv.foodmandu.strictmode.StrictModeClass;
@@ -37,9 +43,11 @@ public class SignupActivity extends AppCompatActivity {
     ImageView ProfileImg;
     EditText etFirstname, etLastname, etUsername, etPasswords, etConPasswords;
     Button btnRegister;
-    String imagePath="";
+    String imagePath = "";
     private String imageName = "";
 
+    private static final int CAMERA_PERMISSION_CODE = 100;
+    private static final int STORAGE_PERMISSION_CODE = 101;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +72,7 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (etPasswords.getText().toString().equals(etConPasswords.getText().toString())) {
-                    if(validate()) {
+                    if (validate()) {
                         saveImageOnly();
                         signUp();
                     }
@@ -80,15 +88,22 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     private boolean validate() {
-        boolean status=true;
+        boolean status = true;
         if (etPasswords.getText().toString().length() < 6) {
             etPasswords.setError("Type random number");
-            status=false;
+            status = false;
         }
         return status;
     }
 
     private void BrowseImage() {
+        LinkPermisson linkPermisson= new LinkPermisson(this);
+        linkPermisson.checkPermissionForReadExtertalStorage();
+        try {
+            linkPermisson.requestPermissionForReadExtertalStorage();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         Intent intent = new Intent(Intent.ACTION_PICK);
         intent.setType("image/*");
         startActivityForResult(intent, 0);
@@ -119,6 +134,7 @@ public class SignupActivity extends AppCompatActivity {
         cursor.close();
         return result;
     }
+
     private void saveImageOnly() {
         File file = new File(imagePath);
         RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file);
@@ -146,17 +162,17 @@ public class SignupActivity extends AppCompatActivity {
         String username = etUsername.getText().toString();
         String password = etPasswords.getText().toString();
 
-        User users = new User(fname,lname,username,password,imageName);
+        User users = new User(fname, lname, username, password, imageName);
 
         UsersAPI usersAPI = Url.getInstance().create(UsersAPI.class);
         Call<SignupResponse> signUpCall = usersAPI.registerUser(users);
 
-                    signUpCall.enqueue(new Callback<SignupResponse>() {
-                        @Override
-                        public void onResponse(Call<SignupResponse> call, Response<SignupResponse> response) {
-                            if (!response.isSuccessful()) {
-                                Toast.makeText(SignupActivity.this, "Code " + response.code(), Toast.LENGTH_SHORT).show();
-                                return;
+        signUpCall.enqueue(new Callback<SignupResponse>() {
+            @Override
+            public void onResponse(Call<SignupResponse> call, Response<SignupResponse> response) {
+                if (!response.isSuccessful()) {
+                    Toast.makeText(SignupActivity.this, "Code " + response.code(), Toast.LENGTH_SHORT).show();
+                    return;
                 }
                 Toast.makeText(SignupActivity.this, "Registered", Toast.LENGTH_SHORT).show();
             }
@@ -169,4 +185,7 @@ public class SignupActivity extends AppCompatActivity {
 
     }
 
+
 }
+
+
