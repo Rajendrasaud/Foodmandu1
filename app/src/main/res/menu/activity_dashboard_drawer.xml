@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/history"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_Restaurants"
+            android:icon="@drawable/restaur"
+            android:title="Restaurants"
+            android:actionLayout="@layout/activity_main"/>
+        <item
+            android:id="@+id/nav_Liquors"
+            android:icon="@drawable/liquorr"
+            android:title="Liquors"
+            android:actionLayout="@layout/activity_main"/>
+        <item
+            android:id="@+id/nav_Bakaries"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Bakaries"
+            android:actionLayout="@layout/activity_main"/>
+
+        <item
+            android:id="@+id/nav_Organic"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Organic"
+            android:actionLayout="@layout/activity_main"/>
+    </group>
+
+    <item android:title="Your things: ">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/basket"
+                android:title="My Basket"
+                android:actionLayout="@layout/activity_main"/>
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/history"
+                android:title="Order History"
+                android:actionLayout="@layout/activity_main"/>
+
+            <item
+                android:id="@+id/nav_notifications"
+                android:icon="@drawable/notification"
+                android:title="Notifications"
+                android:actionLayout="@layout/activity_main"/>
+        </menu>
+    </item>
+
+</menu>
